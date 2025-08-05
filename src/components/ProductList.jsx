@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
 const ProductList = ({ products }) => {
-  // TODO: Check if the product list is empty and display a message if needed
+  // Initialize local state from props to allow modification
+  const [productList, setProductList] = useState(products || []);
+
+  // Update state if props.products changes (optional)
+  useEffect(() => {
+    setProductList(products || []);
+  }, [products]);
+
+  // Remove product handler
+  const handleRemove = (id) => {
+    setProductList(prevProducts => prevProducts.filter(product => product.id !== id));
+  };
+
+  // Show message if empty
+  if (productList.length === 0) {
+    return <p>No products available</p>;
+  }
 
   return (
-    <div>
-      {/* TODO: Iterate over the products array and render a ProductCard for each product */}
+    <div id="product-list">
+      {productList.map(product => (
+        <ProductCard key={product.id} product={product} onRemove={handleRemove} />
+      ))}
     </div>
   );
 };
 
 export default ProductList;
+

@@ -1,3 +1,30 @@
-/* TODO: Style the product card container */
+.card {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white; /* default background */
+  max-width: 220px;
+  margin: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
 
-/* TODO: Add special styling for out-of-stock products */
+.outOfStockClass {
+  background-color: #ffe6e6; /* light red background for out-of-stock */
+}
+
+/* Other styles */
+.productName {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.productPrice {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.productStatus {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
